@@ -102,6 +102,7 @@ print ('[TestCase-004]: Verify the user can be created successfully')
 statusCode = (createUser(jsonNewUser))
 newUser = getUserByID(11)
 
+# The test case passed if createUser returns status_code 201 and we can get this new user successfully
 assertEqual((statusCode == 201) & (newUser == jsonNewUser), True)
 
 # TestCase-005
@@ -109,6 +110,7 @@ print ('[TestCase-005]: Verify the user can be deleted successfully')
 deleteUserCode = deleteUserById(8)
 deleteUserInfo = getUserByID(8)
 
+# The test case passed if it returns status_code 200 and not found deleted user via API (with userId = 8)
 assertEqual((deleteUserCode == 200) & (deleteUserInfo == 404), True)
 
 # TestCase-006
@@ -122,6 +124,7 @@ print ('[TestCase-007]: Verify the user can be updated information successfully'
 updateUserCode = updateUserById(2, jsonUserId_2_Updated)
 updatedUser = getUserByID(2)
 
+# The test case passed if updateUser return status_code 200 and information is updated successfully
 assertEqual((updateUserCode == 200) & (updatedUser == jsonUserId_2_Updated), True)
 
 # ============== 4.- Negative cases ==============
